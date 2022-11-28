@@ -19,10 +19,7 @@ except Exception as e:
    sys.exit()
 
 
-#Display Key as Text
-#privateString = io.StringIO()
-#host_key.write_private_key(privateString)
-#print(privateString.getvalue())
+
 
 class Server(paramiko.ServerInterface):
 
@@ -45,7 +42,7 @@ class Server(paramiko.ServerInterface):
         return True
 
     def check_channel_exec_request(self, channel, command):
-        print ("Grabbing subprocess information...")
+        print ("subprocess information display...")
         cmd_output = subprocess.check_output(command, shell=True)
         cmd_output = cmd_output.strip()        
         channel.send(cmd_output)
@@ -66,7 +63,7 @@ def listener():
 
         
     #New Transport
-    print("Opening new Paramiko Transport...")
+    print("Opening new Paramiko Transport!!!")
     t = paramiko.Transport(client)
     t.load_server_moduli()
     t.add_server_key(host_key)
@@ -78,12 +75,12 @@ def listener():
     #New Channel
 
     chan = t.accept(10) #Accepts new channel from exec_command
-    print("Opening new Paramiko Channel...")
+    print("Opening new Paramiko Channel!!")
     if chan is None:
-        print("No Channel...") #Wrong credentials?
+        print("No Channel...") # wrong credentials input
     else:        
         print("Channel is Authenticated...")
-        time.sleep(.1) #Gives time for subprocess to finish.
+        time.sleep(.1) # allocated time for subprocess to finish.
 
         chan.close() #Closing Channel
         t.close() #Closing Transport
