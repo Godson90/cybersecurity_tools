@@ -1,9 +1,9 @@
 import socket
-#import sys
+
 
 HOST = '127.0.0.1'
 PORT = 7000
-FILE = "sent.txt"
+FILE = "alpha.txt"
 
 class netcatclone:
     def __init__(self, HOST, PORT, FILE):
@@ -14,7 +14,7 @@ class netcatclone:
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def SendUpload(self):
-        print('Connecting')
+        print('Connecting....')
         self.client_socket.connect((self.HOST, self.PORT))
 
         try:
