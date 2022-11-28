@@ -1,9 +1,8 @@
 import socket
-#import sys
 
 HOST = '127.0.0.1'
 PORT = 7000
-FILE = "received.txt"
+FILE = "beta.txt"
 
 
 class netcatClone:
@@ -15,7 +14,7 @@ class netcatClone:
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def WaitForUpload(self):
-        print('Listening')
+        print('Listening....')
         self.server_socket.bind((self.HOST, self.PORT))
         self.server_socket.listen()
 
