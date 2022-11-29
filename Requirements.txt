@@ -5,4 +5,4 @@ webpage==0.1
 typer==0.7.0
 python-whois==0.8.0
 python3-nmap==1.6.0
-
+python-Wappalyzer==0.3.1
